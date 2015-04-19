@@ -8,21 +8,16 @@ public class Transaction implements java.io.Serializable {
 
     static final long serialVersionUID = 1L;
 
-    @org.kie.api.definition.type.Position(value = 1)
-    private java.lang.Double amount;
+    @org.kie.api.definition.type.Position(1)
+	private java.lang.Double amount;
 
-    @org.kie.api.definition.type.Position(value = 0)
-    private java.lang.Integer status;
+    @org.kie.api.definition.type.Position(0)
+	private java.lang.Integer status;
 
-    public Transaction() {
-    }
-    
-    public Transaction(java.lang.Integer status, java.lang.Double amount) {
-        this.status = status;
-        this.amount = amount;
-    }
+    @org.kie.api.definition.type.Position(value = 2)
+	private java.lang.Integer type;
 
-    public java.lang.Double getAmount() {
+	public java.lang.Double getAmount() {
         return this.amount;
     }
     
@@ -37,5 +32,23 @@ public class Transaction implements java.io.Serializable {
     public void setStatus(java.lang.Integer status) {
         this.status = status;
     }
+
+	public java.lang.Integer getType() {
+		return this.type;
+	}
+
+	public void setType(java.lang.Integer type) {
+		this.type = type;
+	}
+
+	public Transaction() {
+	}
+
+	public Transaction(java.lang.Integer status, java.lang.Double amount,
+			java.lang.Integer type) {
+		this.status = status;
+		this.amount = amount;
+		this.type = type;
+	}
 
 }

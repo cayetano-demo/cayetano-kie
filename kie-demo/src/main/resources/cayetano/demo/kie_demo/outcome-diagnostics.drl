@@ -17,7 +17,8 @@ rule "outcome with pending transaction"
 dialect "mvel"
 no-loop
 when
-GameOutcome(transaction.status == 2, outcomeTicketId:ticketId)
+$outcome: GameOutcome(outcomeTicketId:ticketId)
+$transaction: Transaction(status == 2, transactionType:type) from $outcome.transactions
 then
-System.out.println("outcome has pending transaction " + outcomeTicketId);
+System.out.println("outcome with ticketId " + outcomeTicketId + " has pending transaction of type " + transactionType);
 end

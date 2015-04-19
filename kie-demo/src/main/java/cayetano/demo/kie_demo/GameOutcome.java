@@ -18,7 +18,7 @@ public class GameOutcome implements java.io.Serializable {
 	private java.lang.String ticketId;
 
     @org.kie.api.definition.type.Position(value = 3)
-	private cayetano.demo.kie_demo.Transaction transaction;
+	private java.util.List<cayetano.demo.kie_demo.Transaction> transactions;
 
 	public java.lang.Integer getGameState() {
         return this.gameState;
@@ -44,12 +44,13 @@ public class GameOutcome implements java.io.Serializable {
         this.ticketId = ticketId;
     }
 
-	public cayetano.demo.kie_demo.Transaction getTransaction() {
-		return this.transaction;
+	public java.util.List<cayetano.demo.kie_demo.Transaction> getTransactions() {
+		return this.transactions;
 	}
 
-	public void setTransaction(cayetano.demo.kie_demo.Transaction transaction) {
-		this.transaction = transaction;
+	public void setTransactions(
+			java.util.List<cayetano.demo.kie_demo.Transaction> transactions) {
+		this.transactions = transactions;
 	}
 
 	public GameOutcome() {
@@ -57,11 +58,11 @@ public class GameOutcome implements java.io.Serializable {
 
 	public GameOutcome(java.lang.Boolean isFinished,
 			java.lang.Integer gameState, java.lang.String ticketId,
-			cayetano.demo.kie_demo.Transaction transaction) {
+			java.util.List<cayetano.demo.kie_demo.Transaction> transactions) {
 		this.isFinished = isFinished;
 		this.gameState = gameState;
 		this.ticketId = ticketId;
-		this.transaction = transaction;
+		this.transactions = transactions;
 	}
 
 }
