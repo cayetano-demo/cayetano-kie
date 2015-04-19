@@ -1,0 +1,23 @@
+package cayetano.demo.kie_demo;
+
+import java.lang.Number;
+import cayetano.demo.kie_demo.GameOutcome;
+import cayetano.demo.kie_demo.Transaction;
+
+rule "outcome finished"
+dialect "mvel"
+no-loop
+when
+GameOutcome(isFinished==true, outcomeState:gameState, outcomeTicketId:ticketId)
+then
+System.out.println("otcome finished: " + outcomeTicketId + " with state " + outcomeState);
+end
+
+rule "outcome with pending transaction"
+dialect "mvel"
+no-loop
+when
+GameOutcome(transaction.status == 2, outcomeTicketId:ticketId)
+then
+System.out.println("outcome has pending transaction " + outcomeTicketId);
+end
